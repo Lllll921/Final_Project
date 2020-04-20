@@ -144,7 +144,7 @@ def get_statistics():
             if(j == 0):
                 state_name = state_info[j].text
                 location_list.append(state_name)
-                #print("Location: ", state_name)
+                print("Location: ", state_name)
             if(j == 1):
                 state_confirmed_change = state_info[j].find(class_ = "jsx-3323058653")
                 if(state_confirmed_change == None):
@@ -155,7 +155,7 @@ def get_statistics():
                     state_confirmed = state_info[j].text[len(state_confirmed_change):]
                 confirmed_list.append(state_confirmed)
                 state_confirmed = state_confirmed + "(" + state_confirmed_change + ")"
-                #print("confirmed: ", state_confirmed)
+                print("confirmed: ", state_confirmed)
             if(j == 2):
                 state_death_change = state_info[j].find(class_ = "jsx-2274486433")
                 if(state_death_change == None):
@@ -166,11 +166,11 @@ def get_statistics():
                     state_death = state_info[j].text[len(state_death_change):]
                 death_list.append(state_death)
                 state_death = state_death + "(" +  state_death_change + ")"
-                #print("Death: ", state_death)
+                print("Death: ", state_death)
             if(j == 3):
                 state_fatality = state_info[j].text
                 fatality_list.append(state_fatality)
-                #print("Fatality rate: ", state_fatality)
+                print("Fatality rate: ", state_fatality)
             if(j == 4):
                 state_recover_change = state_info[j].find(class_ = "jsx-2878027135")
                 if(state_recover_change == None):
@@ -181,10 +181,11 @@ def get_statistics():
                     state_recover = state_info[j].text[len(state_recover_change):]
                 recovered_list.append(state_recover)
                 state_recover = state_recover + "(" + state_recover_change + ")"
-                #print("Recovered: ", state_recover)
+                print("Recovered: ", state_recover)
                 
                 #     state_statistics = [state_name, state_confirmed, state_death, state_fatality, state_recover]
                 #     insert_data_to_database(state_statistics)
+    print("")
     show_statistic_plot(location_list, confirmed_list)
 
 def get_testing_statistic():
@@ -194,15 +195,24 @@ def get_testing_statistic():
     soup = BeautifulSoup(browser.page_source, "html.parser")
     test_list = soup.find(class_ = "ant-table-tbody")
     testing_statistics = []
-    for i in test_list:
-        test_state_list = i.find_all('span', class_ = "jsx-3214873797")
-        if len(test_state_list) != 0:
-            state_name = test_state_list[0].text
-            testing= test_state_list[2].text.split()
-            testing_total = testing[0]
-            population = testing[1]
-            testing_statistics.append([state_name, testing_total, population])
-    insert_testing_data_into_database(testing_statistics)
+    test_state_list = test_list.find_all(class_ = "ant-table-row tr-1 ant-table-row-level-0")
+    for i in test_state_list:
+        m = i.find_all('td')
+        for k in m:
+            print(k.text)
+            print(" ")
+    # for i in test_list:
+    #     test_state_list = i.find_all('span', class_ = "jsx-3214873797")
+    #     if len(test_state_list) != 0:
+    #         for j in test_state_list:
+    #             print(j.text)
+    #             print("")
+            #state_name = test_state_list[0].text
+            #testing= test_state_list[2].text.split()
+            #testing_total = testing[0]
+            #population = testing[1]
+            #testing_statistics.append([state_name, testing_total, population])
+    #insert_testing_data_into_database(testing_statistics)
 
 def show_statistic_plot(list1, list2):
     xvals = list1[0:10]
@@ -227,53 +237,7 @@ def index():
 
 if __name__ == "__main__": 
 
-    get_news()
-    
-    #response = input("What kind of information you want to get: ").lower()
-
-    #browser=webdriver.Chrome()
-    #base_url = "https://coronavirus.1point3acres.com"
-    #browser.get(base_url)
-    #soup = BeautifulSoup(browser.page_source, "html.parser")
-    #card = soup.find(class_ = "jsx-3875756938 card")
-    #card_list = card.find_all('a', class_ = "jsx-3875756938")
-    #card_name_list = card.find_all('span', class_ = "jsx-3875756938")
-    #new_url = ""
-    #for i in range(0, len(card_list)):
-    #    information_choice = card_name_list[i].text.replace(' ', '')
-    #    if(response == information_choice.lower()):
-    #        if(card_list[i]['target'] == '_blank'):
-    #            new_url = card_list[i]['href']
-    #            break
-    #        elif(card_list[i]['target'] == '_self'):
-    #            new_url = base_url + card_list[i]['href']
-    #            break
-
-    #if(new_url == ""):
-    #    print("We don't have such information")
-    #else:
-        
-
-        
-
-
-
-
-
-
-
-    #browser.get(new_url)。+
-    #soup = BeautifulSoup(browser.page_source, "html.parser")
-    #world_card = soup.find(class_ = "jsx-2132740580 country-table card")
-    #world_data = world_card.find_all(class_ = "jsx-2132740580 row")
-    #for i in world_data:
-    #    #name_box = i.find('span', class_ = "jsx-2132740580 expandable-span")
-    #    #if name_box != none:
-    #    #    name = name_box.find('label', class_ = "jsx-2132740580").text
-    #    statistic_box = i.find('span', class_ = "jsx-2132740580")
-    #    for j in statistic_box:
-    #        print(j)
-    #        print("")
+    get_statistics()
 
 
             

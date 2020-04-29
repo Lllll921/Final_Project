@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>News</title>
+</head>
+
+<body>
+    <style>
+        .date {
+            color: black;
+            font-family: helvetica;
+        }
+
+        .title {
+            color: black;
+            font-style: italic;
+            font-family: helvetica;
+        }
+    </style>
+    <h1>
+        <center>
+            News & Live Updates
+        </center>
+    </h1>
+    <ul>
+        {% for news in news_list %}
+        <p, class="date">{{news[0]}}</p,>
+        <li><a href={{news[2]}}>{{news[1]}}</a></li>
+        <p, class="title">{{news[3]}}</p,>
+        <HR style="border:3 double #987cb9" width="80%" color=#987cb9 SIZE=3>
+        {% endfor %}
+    </ul>
+    <p><a href="/">Back to home page</a></p>
+</body>
+</html>

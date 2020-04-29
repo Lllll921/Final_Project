@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8" />
+    <title>State Information</title>
+</head>
+<body>
+    <center><h1>Here are your results!</h1></center>
+    <table>
+        <tr>
+            <th>Location&nbsp;</th>
+            <th>Total Cases &nbsp;</th>
+            <th>New Cases&nbsp;</th>
+            <th>Total Deaths&nbsp;</th>
+            <th>New Deaths&nbsp;</th>
+            <th>Active Cases&nbsp;</th>
+            <th>Cases/1M_pop&nbsp;</th>
+            <th>Deaths/1M_pop&nbsp;</th>
+            <th>Total Tests&nbsp;</th>
+            <th>Tests/1M_pop&nbsp;</th>
+            <th>Fatality</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+            <td>{{row[6]}}</td>
+            <td>{{row[7]}}</td>
+            <td>{{row[8]}}</td>
+            <td>{{row[9]}}</td>
+            <td>{{row[10]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/">Back to home page</a></p>
+
+</body>
+</html>

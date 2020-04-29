@@ -1,0 +1,56 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+    <h1>
+        Welcome to COVID-19 Statistics!
+    </h1>
+    <h2>
+        What kind of information you want to get?
+    </h2>
+    <form action='/statistics' method='POST'>
+        <p>
+            <input type='radio' name='info_choice'
+                   value='Statistics' checked='checked' />US Statistics <br />
+            Do you want to show data with bar plot?
+            <select name="isPlot">
+
+                <option value="Yes">Yes</option>`
+                <option value="No">No</option>`
+
+            </select></br></br>
+            <input type='radio' name='info_choice'
+                   value='States' /> Individual State Statistics <br />
+            Please input the state name: <input type="text" , value="New York" , name="state" /><br /></br>
+            <input type='radio' name='info_choice'
+                   value='News' /> News  <br />
+
+        </p>
+        <p>
+            <h2>If US Statistics and using bar plot, what kind of information you want to see on y-axis? </h2>
+            <input type='radio' name='dir'
+                   value='Total_Cases' checked='checked' />Total Cases<br />
+            <input type='radio' name='dir'
+                   value='New_Cases' />New Cases<br />
+            <input type='radio' name='dir'
+                   value='Total_Deaths' />Total Deaths<br />
+            <input type='radio' name='dir'
+                   value='New_Deaths' />New Deaths<br />
+            <input type='radio' name='dir'
+                   value='Active_Cases' />Active Cases<br />
+            <input type='radio' name='dir'
+                   value='Total_Tests' />Total tests<br />
+            How many states you want to see on the x-axis:<input name = "number", type = "text",  value=10>
+        </p>
+        <p>
+
+        </p>
+        <input type='submit' value='Get Infomration'>
+    </form>
+
+</body>
+</html>

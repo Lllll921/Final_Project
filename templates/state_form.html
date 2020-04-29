@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8" />
+    <title>State Information</title>
+</head>
+<body>
+    {% if results | length == 0 %}
+    <center><h1>Wrong State Name! Please input a correct state name!</h1></center>
+    {% else %}
+    <h1>Here are your results</h1>
+    <table>
+        <tr>
+            <td>Location: {{results[0][0]}}</td>
+        </tr>
+        <tr>
+            <td>Total Cases: {{results[0][1]}}</td>
+        </tr>
+        <tr>
+            <td>New Cases: {{results[0][2]}}</td>
+        </tr>
+        <tr>
+            <td>Total Deaths: {{results[0][3]}}</td>
+        </tr>
+        <tr>
+            <td>New Deaths: {{results[0][4]}}</td>
+        </tr>
+        <tr>
+            <td>Active Cases: {{results[0][5]}}</td>
+        </tr>
+        <tr>
+            <td>Total_Cases/1M_pop: {{results[0][6]}}</td>
+        </tr>
+        <tr>
+            <td>Deaths/1M_pop: {{results[0][7]}}</td>
+        </tr>
+        <tr>
+            <td>Total Tests: {{results[0][8]}}</td>
+        </tr>
+        <tr>
+            <td>Tests/1M_pop: {{results[0][9]}}</td>
+        </tr>
+        <tr>
+            <td>Fatality: {{results[0][10]}}</td>
+        </tr>
+    </table>
+
+    {% endif %}
+
+    <p><a href="/">Back to home page</a></p>
+</body>
+</html>

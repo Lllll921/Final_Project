@@ -1,0 +1,5 @@
+.vs
+.vscode
+__pycache__
+cache.crawl
+COVID-19.sqlite

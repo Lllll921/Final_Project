@@ -1,0 +1,7 @@
+# Final Project
+Instructions on running my code:
+My project don't need extra instructions. You can directly run my code, click the link it generated, which will go to my homepage. 
+Then you can choose what kind of information you want to see. 
+The only thing needs to be pointing out is that I use "selenium" to crawl data, so the source website will appears, 
+you can just minimize the website but don't close it until the website finish loading. More details can be found
+in my demo video.
